@@ -3,20 +3,18 @@ import ReactDOM from "react-dom/client";
 import Navbar from "./component/navebar";
 import HomePage from "./component/home";
 import AboutPage from "./component/about";
+import ChatMassege from "./component/chatMasseg";
 import Login from "./component/login";
-
+import ChatS from "./component/chatId";
 import Chat from "./component/chat";
 import NotFound from "./component/notefound";
+import Creat from "./component/creat";
 import Loader from "./component/loading";
+import "./index.css";
 
 // router dom
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import "./index.css";
-import Creat from "./component/creat";
+import {createBrowserRouter , RouterProvider,} from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -28,8 +26,16 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
+    path: "/chatMasseg",
+    element: <ChatMassege />,
+  },
+  {
     path: "/home",
     element: <> <Navbar />  <HomePage />  </>,
+  },
+  {
+    path: "chatId",
+    element: <ChatS />
   },
   {
     path: "/creat",

@@ -147,3 +147,14 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+function ChatNavbar() {
+  
+  return(
+    <div className="border-b border-gray-600  p-5 flex justify-between items-center">
+                <h1 className="font-semibold text-xl">Chat app</h1>
+                <button className="font-semibold text-lg">Logout</button>
+            </div>
+  )
+}
+export {ChatNavbar}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {  useNavigate } from "react-router-dom";
+import {  Link, useNavigate } from "react-router-dom";
 import { auth , db } from "../firebase/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
@@ -103,8 +103,9 @@ const Creat = () => {
           </button>
         </div>
         <div className="flex mt-3 justify-between items-center text-sm text-center">
-         <a href="*" className="text-blue-600 font-semibold">forgot password</a>
-         <a href="/login" className="text-blue-900 font-semibold">Sign In</a>
+         {/* <a href="*" className="text-blue-600 font-semibold">forgot password</a>
+         <a href="/login" className="text-blue-900 font-semibold">Sign In</a> */}
+         <Link to='/login' ><h1 className="text-blue-900 font-semibold">Sign In</h1></Link>
         </div>
       </div>
     </div>

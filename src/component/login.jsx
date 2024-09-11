@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../firebase/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
@@ -70,7 +70,8 @@ const Login = () => {
                     </div>
                     <div className="flex mt-3 justify-between items-center text-sm text-center">
                         <span className="text-gray-400">Don't have an account?</span>
-                        <a href="/creat" className="text-blue-900 font-semibold">Sign Up</a>
+                      
+                        <Link to="/creat" >Sign up</Link>
                     </div>
                 </div>
             </div>

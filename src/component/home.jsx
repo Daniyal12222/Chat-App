@@ -14,7 +14,7 @@ const HomePage = () => {
       </p>
       <div className="space-x-4">
         <Link
-          to="/chat"
+          to="/chatId"
           className="px-9 py-2  bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200"
         >
           Start
