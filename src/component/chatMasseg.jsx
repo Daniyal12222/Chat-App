@@ -1,10 +1,8 @@
 import { addDoc, collection, getDocs ,query, where  , onSnapshot } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../firebase/firebase";
-import profile from '../component/img/images.png'
-import { json, useLocation, useNavigate } from "react-router-dom";
-import { ChatNavbar } from "./navebar";
-import moment from "moment";
+import {  useLocation, useNavigate } from "react-router-dom";
+
 
 
 export default function ChatMassege() {
@@ -16,6 +14,9 @@ export default function ChatMassege() {
 
     const navigate = useNavigate();
     const { state } = useLocation()
+
+
+   
     
 
     useEffect(() => {
@@ -39,7 +40,9 @@ export default function ChatMassege() {
         } catch (e){
             console.error("Error fetching documents: ", e);
         }
-    },[])
+    },[]);
+
+   
 
 
 
@@ -47,8 +50,10 @@ export default function ChatMassege() {
 
 
     const sandMsg = async () => {
-        
-        try {
+        if (message !== '') {
+            
+            
+            try {
             const docRef = await addDoc(collection(db, "chat"), {
                 message: message,
                 [state.myUid]: true,
@@ -63,6 +68,10 @@ export default function ChatMassege() {
         } catch (e) {
             console.error("Error adding document: ", e);
         }
+    }else{
+        alert('Write a message to send')
+        // Swal.fire("SWrite a message to send");
+    }
         
     }
 
@@ -90,7 +99,7 @@ export default function ChatMassege() {
                
             ))}
             </div>
-            <div className="w-full   bg-gray-500  fixed flex items-center justify-center gap-3 p-1">
+            <div className="w-full h-[10vh]   pt-3  fixed flex items-center justify-center gap-3 p-1">
                 <input type="text" value={message} onChange={e => setMessage(e.target.value)} className="w-[70%] border  border-gray-500 rounded px-6 py-2   " placeholder="Enter Message" />
                 <button onClick={sandMsg} className="w-40 p-2 text-white font-semibold bg-blue-600 rounded-md">Sand</button>
             </div>
