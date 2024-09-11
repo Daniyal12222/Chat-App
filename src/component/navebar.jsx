@@ -24,9 +24,9 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6  mt-5 lg:px-8">
+      <div className="max-w-7xl  px-4 sm:px-6  mt-5 lg:px-8">
         <div className="flex justify-between h-16">
-          <div className="flex lg:w-full justify-around">
+          <div className="flex lg:w-full justify-around gap-6 items-center">
 
             <div className="flex-shrink-0">
               <Link to="/" className="text-xl font-bold text-gray-800">
@@ -60,7 +60,7 @@ const Navbar = () => {
               </Link>
             </div>
             {/* log out button */}
-          <button onClick={handleLogOut} type="button" className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-3xl text-sm px-2 h-12 text-center "><img src={img} alt="" className="w-10" /></button>
+          <button onClick={handleLogOut} type="button" className="hidden md:flex"><img src={img} alt="" className="w-10" /></button>
           </div>
           <div className="flex items-center">
             <button
@@ -113,7 +113,7 @@ const Navbar = () => {
         className={`md:hidden ${isOpen ? "block" : "hidden"}`}
         id="mobile-menu"
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div className="px-2 pt-2 pb-3 flex justify-center flex-col items-center space-y-1 sm:px-3">
           <Link
             to="/"
             className="block text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-base font-medium"
@@ -136,10 +136,7 @@ const Navbar = () => {
             className="block text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-base font-medium"
           >
           </Link>
-         
-
-          
-          
+          <button onClick={handleLogOut} type="button" className=""><img src={img} alt="" className="w-10" /></button>
         </div>
       </div>
     </nav>

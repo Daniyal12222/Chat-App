@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { db } from "../firebase/firebase";
 import profile from '../component/img/images.png'
 import { useNavigate } from "react-router-dom";
-import { ChatNavbar } from "./navebar";
+import Navbar, { ChatNavbar } from "./navebar";
 
 
 function ChatS() {
@@ -30,12 +30,16 @@ function ChatS() {
 
     }
 
+    const filterUserList = users.filter((e)=>{
+        return e.uid!== myUid
+    })
+
     return (
         <>
-        <ChatNavbar />
+        <Navbar />
             
         <div className="w-[100%] h-[100vh] bg-slate-100 p-2 flex flex-col items-center  ">
-            {users.map(item => (
+            {filterUserList.map(item => (
                 
                 <div key={item.uid} onClick={()=>{navigate('/chatMasseg' , {state : {...item , myUid } })}} className="w-[80%] border mt-7 cursor-pointer  shadow-md shadow-slate-500 border-slate-600 flex justify-between px-5 py-1 rounded">
                     <div className="flex gap-2">

@@ -2,9 +2,9 @@ import { addDoc, collection, getDocs ,query, where  , onSnapshot } from "firebas
 import { useEffect, useState } from "react";
 import { db } from "../firebase/firebase";
 import profile from '../component/img/images.png'
-import { useLocation, useNavigate } from "react-router-dom";
+import { json, useLocation, useNavigate } from "react-router-dom";
 import { ChatNavbar } from "./navebar";
-
+import moment from "moment";
 
 
 export default function ChatMassege() {
@@ -48,6 +48,7 @@ export default function ChatMassege() {
                 message: message,
                 [state.myUid]: true,
                 [state.uid]: true,
+                sandereUid : state.myUid,
                 createdAt: new Date(),
             });
             // console.log("Document written with ID: ", docRef.id);
@@ -55,7 +56,7 @@ export default function ChatMassege() {
             console.error("Error adding document: ", e);
         }
     }
-
+json.s
 
 
     return (
@@ -71,8 +72,11 @@ export default function ChatMassege() {
             <div className="w-full h-[78vh] overflow-y-auto flex flex-col gap-8 p-4 ">
             {chatList.map((item ,index) => (
                 
-                <div key={index} className="  border    shadow-md shadow-slate-400 border-slate-600  rounded">
+                <div key={index} className={` flex ${item.sandereUid == state.myUid ? 'justify-end' : 'justify-start '}`}>
+                       <div className=" border  flex   shadow-md shadow-slate-400 border-slate-600  rounded">
                         <h1 className="font-medium py-1 px-3 text-xl">{item.message.slice(0,1).toUpperCase()}{item.message.slice(1)}</h1>
+                        <h1>{}</h1>
+                        </div>
                 </div>
                
             ))}
