@@ -74,6 +74,7 @@ json.s
                 
                 <div key={index} className={` flex ${item.sandereUid == state.myUid ? 'justify-end' : 'justify-start '}`}>
                        <div className=" border  flex   shadow-md shadow-slate-400 border-slate-600  rounded">
+                        
                         <h1 className="font-medium py-1 px-3 text-xl">{item.message.slice(0,1).toUpperCase()}{item.message.slice(1)}</h1>
                         <h1>{}</h1>
                         </div>
