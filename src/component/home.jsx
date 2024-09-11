@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 const HomePage = () => {
 
   return (
-    <div className="bg-gray-100 min-h-[86vh] flex flex-col items-center justify-center">
+    <div className="bg-gray-100 min-h-[86vh] flex w-[100%] flex-col items-center justify-center p-4">
       <h1 className="text-5xl font-bold text-gray-800 mb-6">
         Welcome to Chat App
       </h1>
